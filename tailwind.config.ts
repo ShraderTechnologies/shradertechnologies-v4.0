@@ -12,6 +12,8 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        charcoal: "var(--charcoal)",
+        matteblack: "var(--black)",
       },
       fontFamily: {
         poppins: ["var(--poppins)", "sans-serif"],
