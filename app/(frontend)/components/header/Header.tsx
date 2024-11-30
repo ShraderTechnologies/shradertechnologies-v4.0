@@ -1,25 +1,19 @@
+import styles from "./Header.module.css";
 import { socialIcons } from "../../data/homepageData";
 import ThemeToggle from "../themetoggle/ThemeToggle";
+
 /**
- * Header component that displays social media icons and navigation
- * Includes accessibility features for social links
- * Debug help by Github Copilot
+ * The `getIconClass` function takes a social media platform name as a parameter and returns a string of combined CSS class names. It uses an object to map the platform names ('Facebook', 'YouTube', 'Instagram') to their corresponding CSS module classes defined in `Header.module.css`. The function then combines the base `socialIcon` class with the platform-specific class to apply both the base styles and the hover effect for the specific platform. This allows dynamic class assignment based on the social media platform.
  */
-
 export default function Header() {
-  // Helper function to get icon hover color
-  const getIconColor = (label: string) => {
-    const colors = {
-      Facebook: "#1877F2",
-      YouTube: "#FF0000",
-      Instagram: "#E4405F",
-    };
-    return colors[label] || "#E4405F";
+  const getIconClass = (label: string): string => {
+    const classes = {
+      Facebook: styles.facebook,
+      YouTube: styles.youtube,
+      Instagram: styles.instagram,
+    }[label];
+    return `${styles.socialIcon} ${classes}`;
   };
-
-  // Common icon classes
-  const iconBaseClasses =
-    "w-5 h-5 sm:w-6 sm:h-6 text-gray-600 dark:text-gray-400 transition-colors duration-300";
 
   return (
     <header className="w-full bg-white dark:bg-matteblack">
@@ -34,13 +28,9 @@ export default function Header() {
                   aria-label={label}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="transition-colors duration-300"
                 >
-                  <Icon
-                    className={`${iconBaseClasses} hover:text-[${getIconColor(
-                      label
-                    )}] dark:hover:text-[${getIconColor(label)}]`}
-                  />
+                  {/* The getIconClass function is used here to dynamically assign CSS classes to each social media icon based on its label */}
+                  <Icon className={getIconClass(label)} />
                 </a>
               ))}
             </div>
