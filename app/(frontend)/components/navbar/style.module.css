@@ -1,0 +1,60 @@
+.header_nav {
+  margin-top: 50px;
+  padding: 30px;
+  position: fixed;
+  right: 0;
+  z-index: 1;
+}
+
+.header_nav .button {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #e76168;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header_nav .burger {
+  position: relative;
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  border-radius: 2px;
+  transition: transform 0.3s;
+}
+
+.header_nav .burger::after,
+.header_nav .burger::before {
+  content: "";
+  position: absolute;
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  border-radius: 2px;
+  transition: transform 0.3s;
+}
+
+.header_nav .burger::after {
+  top: 7px;
+}
+
+.header_nav .burger::before {
+  top: -7px;
+}
+
+.header_nav .burger.burgerActive {
+  background-color: transparent;
+}
+
+.header_nav .burger.burgerActive::after {
+  transform: rotate(45deg);
+  top: 0;
+}
+
+.header_nav .burger.burgerActive::before {
+  transform: rotate(-45deg);
+  top: 0;
+}
