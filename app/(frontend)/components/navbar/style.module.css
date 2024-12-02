@@ -1,12 +1,11 @@
-.header_nav {
+.headerNav {
   margin-top: 50px;
   padding: 30px;
   position: fixed;
   right: 0;
-  z-index: 1;
 }
 
-.header_nav .button {
+.headerNav .button {
   width: 50px;
   height: 50px;
   border-radius: 50%;
@@ -15,9 +14,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 999;
 }
 
-.header_nav .burger {
+.headerNav .burger {
   position: relative;
   width: 25px;
   height: 3px;
@@ -26,8 +26,8 @@
   transition: transform 0.3s;
 }
 
-.header_nav .burger::after,
-.header_nav .burger::before {
+.headerNav .burger::after,
+.headerNav .burger::before {
   content: "";
   position: absolute;
   width: 25px;
@@ -37,24 +37,24 @@
   transition: transform 0.3s;
 }
 
-.header_nav .burger::after {
+.headerNav .burger::after {
   top: 7px;
 }
 
-.header_nav .burger::before {
+.headerNav .burger::before {
   top: -7px;
 }
 
-.header_nav .burger.burgerActive {
+.headerNav .burger.burgerActive {
   background-color: transparent;
 }
 
-.header_nav .burger.burgerActive::after {
+.headerNav .burger.burgerActive::after {
   transform: rotate(45deg);
   top: 0;
 }
 
-.header_nav .burger.burgerActive::before {
+.headerNav .burger.burgerActive::before {
   transform: rotate(-45deg);
   top: 0;
 }

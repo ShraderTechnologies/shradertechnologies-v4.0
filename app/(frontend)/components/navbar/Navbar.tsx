@@ -16,8 +16,8 @@ export default function Navbar() {
 
   return (
     <>
-      <div className="fixed top-0 left-0 right-0 z-50">
-        <div className={styles.header_nav}>
+      <div className="fixed top-0 left-0 right-0 z-[999]">
+        <div className={styles.headerNav}>
           <div
             onClick={() => {
               setIsActive(!isActive);
