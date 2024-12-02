@@ -26,14 +26,14 @@ export default function LeftContent() {
         initial="initial"
         animate="animate"
       >
-        <div className="relative w-full max-w-xs sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl aspect-square">
+        <div className="relative w-full max-[390px]:max-w-[200px] max-w-xs  max-[855px]:max-w-[300px] lg:max-w-xl xl:max-w-2xl aspect-square">
           <Image
             src="/images/stock/handwithphone.png"
             alt="Image Shrader Technologies"
             fill
             priority
             className="object-contain"
-            sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+            sizes="(max-width: 390px) 200px, (max-width: 640px) 100vw, (max-width: 855px) 300px, (max-width: 1024px) 33vw, 25vw"
           />
         </div>
       </motion.div>

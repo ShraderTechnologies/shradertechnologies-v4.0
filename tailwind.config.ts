@@ -14,11 +14,13 @@ export default {
         foreground: "var(--foreground)",
         charcoal: "var(--charcoal)",
         matteblack: "var(--black)",
+        yellow: "var(--yellow)",
       },
       fontFamily: {
         poppins: ["var(--poppins)", "sans-serif"],
       },
     },
   },
+
   plugins: [],
 } satisfies Config;

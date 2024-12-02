@@ -2,6 +2,8 @@ import styles from "./Header.module.css";
 import { socialIcons } from "../../data/homepageData";
 import ThemeToggle from "../themetoggle/ThemeToggle";
 import LeftContent from "./headerContent/LeftContent";
+import TopContent from "./headerContent/TopContent";
+import ContentRight from "./headerContent/ContentRight";
 
 /**
  * The `getIconClass` function takes a social media platform name as a parameter and returns a string of combined CSS class names. It uses an object to map the platform names ('Facebook', 'YouTube', 'Instagram') to their corresponding CSS module classes defined in `Header.module.css`. The function then combines the base `socialIcon` class with the platform-specific class to apply both the base styles and the hover effect for the specific platform. This allows dynamic class assignment based on the social media platform.
@@ -47,11 +49,14 @@ export default function Header() {
               <ThemeToggle />
             </div>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 py-8 mt-20">
+          <TopContent />
+          <div className="grid grid-cols-1 max-[855px]:grid-cols-1 min-[855px]:grid-cols-2 gap-4 py-8 custom-header ">
             <div className="w-full min-h-[200px] ">
               <LeftContent />
             </div>
-            <div className="w-full min-h-[200px] "></div>
+            <div className="w-full min-h-[200px] ">
+              <ContentRight />
+            </div>
           </div>
         </div>
       </div>
