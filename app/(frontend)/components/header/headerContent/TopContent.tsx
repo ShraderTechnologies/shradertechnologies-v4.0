@@ -1,3 +1,27 @@
+/**
+ * TopContent Component
+ * -------------------
+ * A notification-style component that appears at the top of the page with a call-to-action.
+ *
+ * Features:
+ * - Glassmorphism design with backdrop blur
+ * - Responsive layout and spacing
+ * - Dark mode support
+ * - Custom font sizing using CSS variables
+ * - Call-to-action link to contact page
+ *
+ * Styling:
+ * - Uses Tailwind for responsive design
+ * - Implements glassmorphism effect with:
+ *   - Semi-transparent background
+ *   - Backdrop blur
+ *   - Subtle border
+ * - Responsive text sizing with --font-size-xs variable
+ * - Dark mode colors for text and background
+ *
+ * Assested by Github Copilot AI /Jury
+ */
+
 import Link from "next/link";
 
 export default function TopContent() {

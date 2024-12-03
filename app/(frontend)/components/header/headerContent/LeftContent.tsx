@@ -1,4 +1,32 @@
 "use client";
+/**
+ * LeftContent Component
+ * --------------------
+ * A responsive image component with animation effects and adaptive sizing.
+ *
+ * Features:
+ * - Responsive image sizing with custom breakpoints:
+ *   - Mobile (<390px): max-w-[200px]
+ *   - Small screens: max-w-xs
+ *   - Medium screens (<855px): max-w-[300px]
+ *   - Large screens (<1280px): max-w-xl
+ *   - Extra large screens: max-w-2xl
+ *
+ * Animation Details:
+ * - Fade in from left with slide effect
+ * - Uses Framer Motion for smooth transitions
+ * - Initial state: hidden and offset left
+ * - Animate state: visible and in position
+ *
+ * Image Handling:
+ * - Uses Next.js Image component for optimization
+ * - Maintains aspect ratio with aspect-square
+ * - Priority loading for above-the-fold content
+ * - Responsive sizes prop for optimal image delivery
+ *
+ * Assested by Github Copilot AI / Jury
+ */
+
 import Image from "next/image";
 import { motion, Variants } from "motion/react";
 
