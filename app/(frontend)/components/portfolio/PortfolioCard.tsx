@@ -5,45 +5,54 @@ import { IoChevronBackOutline, IoChevronForwardOutline } from "react-icons/io5";
 
 export default function PortfolioCard() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isWideScreen, setIsWideScreen] = useState(false);
+  const [screenSize, setScreenSize] = useState({
+    isWideScreen: false,
+    isMediumScreen: false,
+  });
   const cards = [
     {
-      title: "Project 1",
+      title: "Pasundo",
       description: "Description for project 1",
-      image: "/path-to-image1.jpg",
+      image: "/images/portfolio/motorcyclelogo.png",
       details: "More details about Project 1",
     },
     {
       title: "Project 2",
       description: "Description for project 2",
-      image: "/path-to-image2.jpg",
+      image: "/images/portfolio/lighting.png",
       details: "More details about Project 2",
     },
     {
       title: "Project 3",
       description: "Description for project 3",
-      image: "/path-to-image3.jpg",
+      image: "/images/portfolio/may-art.png",
       details: "More details about Project 3",
     },
     {
       title: "Project 4",
       description: "Description for project 4",
-      image: "/path-to-image4.jpg",
+      image: "/images/portfolio/thelearningposts.png",
       details: "More details about Project 4",
     },
   ];
 
   useEffect(() => {
     const handleResize = () => {
-      setIsWideScreen(window.innerWidth >= 1024);
+      setScreenSize({
+        isWideScreen: window.innerWidth >= 1024,
+        isMediumScreen: window.innerWidth >= 768 && window.innerWidth < 1024,
+      });
     };
     handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  // Modified getVisibleCards
   const getVisibleCards = () => {
-    return isWideScreen ? 3 : 1;
+    if (screenSize.isWideScreen) return 3;
+    if (screenSize.isMediumScreen) return 2;
+    return 1;
   };
 
   const getSlidePercentage = () => {
@@ -111,20 +120,17 @@ export default function PortfolioCard() {
                 <div className="relative w-full h-full transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
                   {/* Front Card */}
                   <div className="absolute inset-0 w-full h-full [backface-visibility:hidden]">
-                    <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 h-full">
-                      <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100">
-                        {card.title}
-                      </h3>
-                      <p className="mt-4 text-gray-600 dark:text-gray-400">
-                        {card.description}
-                      </p>
+                    <div className="flex items-center justify-center w-full flex-col bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 h-full">
                       <Image
                         src={card.image}
                         alt={card.title}
                         width={300}
                         height={200}
-                        className="mt-4 rounded-lg object-cover"
+                        className="mt-2 rounded-lg object-cover "
                       />
+                      <h3 className="mt-2 uppercase tracking-widest text-2xl font-bold text-gray-900 dark:text-gray-100">
+                        {card.title}
+                      </h3>
                     </div>
                   </div>
 

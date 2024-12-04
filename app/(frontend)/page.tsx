@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     // Uses dvh for dynamic viewport height
-    <div className="min-h-screen flex flex-col items-center justify-start  dark:bg-matteblack">
+    <div className="min-h-screen flex flex-col items-center justify-start dark:bg-matteblack">
       <div className="w-full mx-auto">
         <section className="min-h-screen py-4 sm:py-6 lg:py-8">
           <Navbar />
