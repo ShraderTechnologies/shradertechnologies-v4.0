@@ -1,22 +1,28 @@
 /**
- * PortfolioCard Component
+ * Portfolio Card Component
  *
- * A responsive grid layout component that displays portfolio cards with flip animation.
+ * A flippable card component displaying project details with front/back views.
  *
- * Features:
- * - Responsive grid: 1 column (mobile), 2 columns (tablet), 3 columns (desktop)
- * - Interactive flip card animation on hover
- * - Staggered entrance animations from different directions
- * - Dark mode support
+ * Structure:
+ * - Front Card:
+ *   - Title (uppercase, centered)
+ *   - Description (light text)
+ * - Back Card:
+ *   - Project details
+ *   - Problem statement
+ *   - Solution overview
+ *   - Status indicator
  *
- * Card Structure:
- * - Front: Project image, title, and brief description
- * - Back: Project details including problem and solution
+ * Animation Logic:
+ * - For cards with index % 3 === 0 (1st column): Slides from left (-100px)
+ * - For cards with index % 3 === 1 (2nd column): Slides up from bottom (y: 100)
+ * - For cards with index % 3 === 2 (3rd column): Slides from right (100px)
  *
- * Animations:
- * - Entry: Cards slide in from different directions based on position
- * - Interaction: 3D flip animation on hover
- * - Stagger: 0.2s delay between each card's entrance
+ * Transition:
+ * - Each card fades in (opacity 0 -> 1)
+ * - Staggered animation delay (0.2s * index)
+ * - Animation duration of 0.5s per card
+ *
  *
  * Assested by Github Copilot AI / Jury
  */
@@ -85,6 +91,9 @@ export default function PortfolioCard() {
                   </p>
                   <p className="mt-4 text-sm  text-gray-600 dark:text-gray-400">
                     {card.solution}
+                  </p>
+                  <p className="bg-yellow py-3 px-2 mt-3 rounded-lg text-sm">
+                    {card.status}
                   </p>
                 </div>
               </div>

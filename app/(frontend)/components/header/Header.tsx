@@ -46,10 +46,10 @@ export default function Header() {
   };
 
   return (
-    <header className="w-full  dark:bg-matteblack">
+    <header className="w-full dark:bg-matteblack ">
       {/* Background Image Container */}
       <div
-        className="absolute inset-0 bg-[url('/images/background-white.png')] bg-cover bg-center bg-no-repeat -z-1"
+        className="absolute inset-0 bg-[url('/images/background-white.png')] bg-cover bg-center bg-no-repeat -z-10"
         style={{
           backgroundImage: "url('/images/background-white.png'')",
         }}

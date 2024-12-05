@@ -1,3 +1,28 @@
+/**
+ * Navigation Menu Component
+ *
+ * A sliding navigation menu with animated transitions and route handling.
+ *
+ * Features:
+ * - Animated slide-in/out menu panel
+ * - Dynamic route highlighting
+ * - Responsive design
+ * - Custom curve animation
+ * - Footer integration
+ *
+ * Components:
+ * - Links: Navigation link items
+ * - Footer: Menu footer content
+ * - Curve: Animated curve effect
+ *
+ *
+ * {motion} - Framer Motion animations
+ * {next/navigation} - Next.js routing
+ * {NavItem[]} - Navigation items array
+ *
+ * Assessed by Github Copilot AI / Jury
+ */
+
 import React, { useState } from "react";
 import styles from "./style.module.css";
 import { motion } from "motion/react";

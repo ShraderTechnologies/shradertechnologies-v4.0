@@ -1,4 +1,23 @@
 "use client";
+
+/**
+ * Navigation Component
+ *
+ * A responsive navigation bar with hamburger menu animation.
+ *
+ * Features:
+ * - Fixed positioning at top of viewport
+ * - Animated hamburger button toggle
+ * - Auto-close menu on route change
+ * - Z-index handling for overlay
+ *
+ *
+ * {useState} - Tracks menu open/closed state
+ * {usePathname} - Monitors route changes to auto-close menu
+ * {useEffect} - Handles menu state on route changes
+ *
+ * Assessed by Github Copilot AI / Jury
+ */
 import styles from "./style.module.css";
 import { useEffect, useState } from "react";
 import Nav from "./nav/Nav";
