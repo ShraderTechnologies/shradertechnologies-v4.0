@@ -1,158 +1,96 @@
+/**
+ * PortfolioCard Component
+ *
+ * A responsive grid layout component that displays portfolio cards with flip animation.
+ *
+ * Features:
+ * - Responsive grid: 1 column (mobile), 2 columns (tablet), 3 columns (desktop)
+ * - Interactive flip card animation on hover
+ * - Staggered entrance animations from different directions
+ * - Dark mode support
+ *
+ * Card Structure:
+ * - Front: Project image, title, and brief description
+ * - Back: Project details including problem and solution
+ *
+ * Animations:
+ * - Entry: Cards slide in from different directions based on position
+ * - Interaction: 3D flip animation on hover
+ * - Stagger: 0.2s delay between each card's entrance
+ *
+ * Assested by Github Copilot AI / Jury
+ */
+
 import Image from "next/image";
 import { motion } from "motion/react";
-import { useEffect, useState } from "react";
-import { IoChevronBackOutline, IoChevronForwardOutline } from "react-icons/io5";
+import { cards } from "../../data/Cards";
 
 export default function PortfolioCard() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [screenSize, setScreenSize] = useState({
-    isWideScreen: false,
-    isMediumScreen: false,
+  const cardVariants = (index: number) => ({
+    hidden: {
+      opacity: 0,
+      x: index % 3 === 0 ? -100 : index % 3 === 1 ? 0 : 100,
+      y: index % 3 === 1 ? 100 : 0,
+    },
+    visible: {
+      opacity: 1,
+      x: 0,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        delay: index * 0.2,
+      },
+    },
   });
-  const cards = [
-    {
-      title: "Pasundo",
-      description: "Description for project 1",
-      image: "/images/portfolio/motorcyclelogo.png",
-      details: "More details about Project 1",
-    },
-    {
-      title: "Project 2",
-      description: "Description for project 2",
-      image: "/images/portfolio/lighting.png",
-      details: "More details about Project 2",
-    },
-    {
-      title: "Project 3",
-      description: "Description for project 3",
-      image: "/images/portfolio/may-art.png",
-      details: "More details about Project 3",
-    },
-    {
-      title: "Project 4",
-      description: "Description for project 4",
-      image: "/images/portfolio/thelearningposts.png",
-      details: "More details about Project 4",
-    },
-  ];
-
-  useEffect(() => {
-    const handleResize = () => {
-      setScreenSize({
-        isWideScreen: window.innerWidth >= 1024,
-        isMediumScreen: window.innerWidth >= 768 && window.innerWidth < 1024,
-      });
-    };
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  // Modified getVisibleCards
-  const getVisibleCards = () => {
-    if (screenSize.isWideScreen) return 3;
-    if (screenSize.isMediumScreen) return 2;
-    return 1;
-  };
-
-  const getSlidePercentage = () => {
-    const visibleCards = getVisibleCards();
-    return currentIndex * (100 / visibleCards);
-  };
-
-  const isLastSlide = () => {
-    const visibleCards = getVisibleCards();
-    return currentIndex >= cards.length - visibleCards;
-  };
-
-  const slideLeft = () => {
-    if (currentIndex > 0) {
-      setCurrentIndex(currentIndex - 1);
-    }
-  };
-
-  const slideRight = () => {
-    if (!isLastSlide()) {
-      setCurrentIndex(currentIndex + 1);
-    }
-  };
-
   return (
-    <div className="relative w-full px-4 pt-20">
-      <button
-        onClick={slideLeft}
-        disabled={currentIndex === 0}
-        className={`absolute left-0 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full shadow-lg transition-all
-          ${
-            currentIndex === 0
-              ? "bg-gray-300 cursor-not-allowed opacity-50"
-              : "bg-white/80 dark:bg-gray-800/80 hover:bg-white dark:hover:bg-gray-800"
-          }`}
-      >
-        <IoChevronBackOutline className="w-6 h-6 text-gray-800 dark:text-gray-200" />
-      </button>
-
-      <button
-        onClick={slideRight}
-        disabled={isLastSlide()}
-        className={`absolute right-0 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full shadow-lg transition-all
-          ${
-            isLastSlide()
-              ? "bg-gray-300 cursor-not-allowed opacity-50"
-              : "bg-white/80 dark:bg-gray-800/80 hover:bg-white dark:hover:bg-gray-800"
-          }`}
-      >
-        <IoChevronForwardOutline className="w-6 h-6 text-gray-800 dark:text-gray-200" />
-      </button>
-
-      <div className="overflow-hidden">
-        <motion.div
-          className="flex"
-          animate={{ x: `-${getSlidePercentage()}%` }}
-          transition={{ duration: 0.5 }}
-        >
-          {cards.map((card, index) => (
-            <motion.div
-              key={index}
-              className="min-w-full md:min-w-[50%] lg:min-w-[33.333%] p-4"
-            >
-              <div className="relative h-[400px] group">
-                <div className="relative w-full h-full transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
-                  {/* Front Card */}
-                  <div className="absolute inset-0 w-full h-full [backface-visibility:hidden]">
-                    <div className="flex items-center justify-center w-full flex-col bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 h-full">
-                      <Image
-                        src={card.image}
-                        alt={card.title}
-                        width={300}
-                        height={200}
-                        className="mt-2 rounded-lg object-cover "
-                      />
-                      <h3 className="mt-2 uppercase tracking-widest text-2xl font-bold text-gray-900 dark:text-gray-100">
-                        {card.title}
-                      </h3>
-                    </div>
-                  </div>
-
-                  {/* Back Card */}
-                  <div className="absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)]">
-                    <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 h-full">
-                      <h4 className="text-xl font-bold text-gray-900 dark:text-gray-100">
-                        Details
-                      </h4>
-                      <p className="mt-4 text-gray-600 dark:text-gray-400">
-                        {card.details}
-                      </p>
-                      <button className="mt-auto px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
-                        Learn More
-                      </button>
-                    </div>
-                  </div>
+    <div className="w-full px-4 pt-20">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {cards.map((card, index) => (
+          <motion.div
+            key={index}
+            variants={cardVariants(index)}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="relative h-[400px] group perspective-[1000px]"
+          >
+            <div className="relative w-full h-full transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+              {/* Front Card */}
+              <div className="absolute inset-0 w-full h-full [backface-visibility:hidden]">
+                <div className="flex items-center justify-center w-full flex-col bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 h-full">
+                  <Image
+                    src={card.image}
+                    alt={card.title}
+                    width={300}
+                    height={200}
+                    className="rounded-lg object-cover"
+                  />
+                  <h3 className="mt-4 uppercase text-center tracking-widest text-2xl font-bold text-gray-900 dark:text-gray-100">
+                    {card.title}
+                  </h3>
+                  <p className="text-xs font-light text-matteblack dark:text-white">
+                    {card.description}
+                  </p>
                 </div>
               </div>
-            </motion.div>
-          ))}
-        </motion.div>
+
+              {/* Back Card */}
+              <div className="absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)]">
+                <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 h-full">
+                  <h4 className="text-xl font-bold text-gray-900 dark:text-gray-100 text-center">
+                    {card.title} Details
+                  </h4>
+                  <p className="mt-4 text-sm  text-gray-600 dark:text-gray-400">
+                    {card.problem}
+                  </p>
+                  <p className="mt-4 text-sm  text-gray-600 dark:text-gray-400">
+                    {card.solution}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        ))}
       </div>
     </div>
   );

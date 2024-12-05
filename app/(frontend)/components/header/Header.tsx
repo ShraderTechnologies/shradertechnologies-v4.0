@@ -49,7 +49,7 @@ export default function Header() {
     <header className="w-full  dark:bg-matteblack">
       {/* Background Image Container */}
       <div
-        className="absolute inset-0 bg-[url('/images/background-white.png')] bg-cover bg-center bg-no-repeat -z-10"
+        className="absolute inset-0 bg-[url('/images/background-white.png')] bg-cover bg-center bg-no-repeat -z-1"
         style={{
           backgroundImage: "url('/images/background-white.png'')",
         }}
@@ -61,7 +61,7 @@ export default function Header() {
           {/* Top section of the header with social icons and a theme toggle */}
           <div className="flex items-center justify-between h-full">
             {/* Social media icons */}
-            <div className="flex items-center space-x-4">
+            <div className="flex items-center space-x-4 z-0">
               {socialIcons.map(({ icon: Icon, href, label }) => (
                 <a
                   key={label}
