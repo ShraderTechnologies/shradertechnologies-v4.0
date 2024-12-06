@@ -21,7 +21,7 @@
 import styles from "./style.module.css";
 import { useEffect, useState } from "react";
 import Nav from "./nav/Nav";
-import { motion, AnimatePresence } from "motion/react";
+import { AnimatePresence } from "motion/react";
 import { usePathname } from "next/navigation";
 
 export default function Navbar() {
@@ -32,43 +32,14 @@ export default function Navbar() {
     if (isActive) setIsActive(false);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname]);
-  const buttonVariants = {
-    initial: {
-      scale: 0,
-      opacity: 0,
-    },
-    animate: {
-      scale: 1,
-      opacity: 1,
-      transition: {
-        type: "spring",
-        stiffness: 260,
-        damping: 20,
-      },
-    },
-    hover: {
-      scale: 1.1,
-      transition: {
-        duration: 0.2,
-      },
-    },
-    tap: {
-      scale: 0.95,
-    },
-  };
 
   return (
     <>
-      <motion.div
-        className={styles.headerNav}
-        initial="initial"
-        animate="animate"
-      >
-        <motion.div
-          variants={buttonVariants}
-          whileHover="hover"
-          whileTap="tap"
-          onClick={() => setIsActive(!isActive)}
+      <div className={styles.headerNav}>
+        <div
+          onClick={() => {
+            setIsActive(!isActive);
+          }}
           className={styles.button}
         >
           <div
@@ -76,8 +47,8 @@ export default function Navbar() {
               isActive ? styles.burgerActive : ""
             }`}
           ></div>
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
 
       <AnimatePresence mode="wait">{isActive && <Nav />}</AnimatePresence>
     </>
