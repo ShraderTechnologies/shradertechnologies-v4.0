@@ -1,6 +1,5 @@
 import styles from "./Header.module.css";
 import { socialIcons } from "../../data/homepageData";
-import ThemeToggle from "../themetoggle/ThemeToggle";
 import LeftContent from "./headerContent/LeftContent";
 import TopContent from "./headerContent/TopContent";
 import ContentRight from "./headerContent/ContentRight";
@@ -46,7 +45,7 @@ export default function Header() {
   };
 
   return (
-    <header className="w-full dark:bg-matteblack ">
+    <header className="w-full h-screen dark:bg-matteblack ">
       {/* Background Image Container */}
       <div
         className="absolute inset-0 bg-[url('/images/background-white.png')] bg-cover bg-center bg-no-repeat -z-10"
@@ -74,10 +73,6 @@ export default function Header() {
                   <Icon className={getIconClass(label)} />
                 </a>
               ))}
-            </div>
-            {/* Theme toggle button */}
-            <div className="flex items-center space-x-4 ">
-              <ThemeToggle />
             </div>
           </div>
           {/* Top content section */}

@@ -15,9 +15,8 @@ export default function Home() {
     // Uses dvh for dynamic viewport height
     <div className="min-h-screen flex flex-col items-center justify-start dark:bg-matteblack">
       <div className="w-full  ">
-        <section className="min-h-screen bg-[#EDEEEF] dark:bg-matteblack">
-          <Header />
-        </section>
+        <Header />
+
         <Portfolio />
         <Edge />
         <Projectinmind />

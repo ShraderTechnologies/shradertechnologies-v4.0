@@ -32,6 +32,7 @@ import Links from "./Links/Links";
 import Footer from "./Footer/Footer";
 import Curve from "./Curve/Curve";
 import Image from "next/image";
+import ThemeToggle from "../../themetoggle/ThemeToggle";
 
 // Types for navigation items
 interface NavItem {
@@ -73,6 +74,10 @@ export default function Nav() {
       className={styles.menu}
     >
       <div className={styles.menus}>
+        {/* Theme toggle button */}
+        <div className="flex items-center ">
+          <ThemeToggle />
+        </div>
         <div
           onMouseLeave={() => setSelectedIndicator(pathname)}
           className={styles.nav}
