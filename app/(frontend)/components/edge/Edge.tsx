@@ -111,7 +111,7 @@ export default function Edge() {
             whileInView="visible"
             viewport={{ once: true }}
           >
-            <div className="text-gray-600 dark:text-gray-400 flex flex-col gap-6">
+            <div className="text-gray-600 dark:text-gray-400 flex flex-col gap-5">
               {edgeData.map((item) => (
                 <motion.div
                   key={item.id}
