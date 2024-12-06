@@ -108,3 +108,31 @@ export const TeamsItems = [
       "Nash has been a member of Shrader Technology since 2024. Currently, he serves as a Junior Mobile Developer on a part-time basis. Bondoc has gained valuable experience in both front-end and back-end development through handling client contracts from multiple universities and is eager to expand his knowledge in these areas. ",
   },
 ];
+
+export type StepData = {
+  id: string | number;
+  title: string;
+  description: string;
+};
+export const edgeData: StepData[] = [
+  {
+    id: 1,
+    title: "Step",
+    description: "Share your dream app with our affordable offshore team",
+  },
+  {
+    id: 2,
+    title: "Step",
+    description: "We use the latest AIs to make it faster",
+  },
+  {
+    id: 3,
+    title: "Step",
+    description: "We use social media trends to market it better",
+  },
+  {
+    id: 4,
+    title: "Step",
+    description: "PROFIT!",
+  },
+];
