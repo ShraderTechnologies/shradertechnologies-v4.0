@@ -1,0 +1,59 @@
+@import "./reset.css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --charcoal: #293245;
+  --black: #141619;
+  --yellow: #f1ac20;
+  --font-size-xs: clamp(0.75rem, 0.7vw + 0.5rem, 0.875rem);
+  --font-size-sm: clamp(0.875rem, 0.8vw + 0.6rem, 1rem);
+  --font-size-base: clamp(1rem, 1vw + 0.75rem, 1.125rem);
+  --font-size-lg: clamp(1.125rem, 1.2vw + 0.9rem, 1.25rem);
+  --font-size-xl: clamp(1.25rem, 1.5vw + 1rem, 1.5rem);
+  --font-size-2xl: clamp(1.5rem, 2vw + 1.25rem, 1.875rem);
+  --font-size-3xl: clamp(1.875rem, 2.5vw + 1.5rem, 2.25rem);
+  --font-size-4xl: clamp(2.25rem, 3vw + 1.75rem, 3rem);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: var(--poppins);
+}
+
+/* Utility classes for responsive typography */
+.text-responsive-xs {
+  font-size: var(--font-size-xs);
+}
+.text-responsive-sm {
+  font-size: var(--font-size-sm);
+}
+.text-responsive-base {
+  font-size: var(--font-size-base);
+}
+.text-responsive-lg {
+  font-size: var(--font-size-lg);
+}
+.text-responsive-xl {
+  font-size: var(--font-size-xl);
+}
+.text-responsive-2xl {
+  font-size: var(--font-size-2xl);
+}
+.text-responsive-3xl {
+  font-size: var(--font-size-3xl);
+}
+.text-responsive-4xl {
+  font-size: var(--font-size-4xl);
+}
