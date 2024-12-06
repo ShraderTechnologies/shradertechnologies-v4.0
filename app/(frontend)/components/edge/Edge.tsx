@@ -82,44 +82,23 @@ export default function Edge() {
           </motion.div>
 
           {/* Second Item */}
-          {/* <div className="w-full md:w-2/3 ">
-            <div className="text-gray-600 dark:text-gray-400 flex flex-col gap-6">
-              {edgeData.map((item) => (
-                <div
-                  key={item.id}
-                  className="w-full flex items-center space-x-4 -ml-20 z-10"
-                >
-                  <div className="flex flex-col items-center space-y-2 bg-yellow p-3 rounded-lg border-8 border-[##EDEEEF] dark:border-matteblack ">
-                    <h3 className="uppercase text-2xl sm:text-2xl font-semibold text-gray-800 dark:text-gray-100">
-                      {item.title}
-                    </h3>
-                    <span className=" text-gray-600 text-4xl sm:text-2xl lg:text-4xl font-semibold  dark:text-white bg-yellow-50 rounded">
-                      {item.id}
-                    </span>
-                  </div>
-                  <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl  text-gray-700  dark:text-gray-300 tracking-wider">
-                    {item.description}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div> */}
+
           <motion.div
             className="w-full md:w-2/3"
             variants={containerVariants}
             initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false }}
           >
             <div className="text-gray-600 dark:text-gray-400 flex flex-col gap-5">
               {edgeData.map((item) => (
                 <motion.div
                   key={item.id}
-                  className="w-full flex items-center space-x-4 -ml-20 sm:ml-0 md:-ml-20 z-10 "
+                  className="w-full flex items-center space-x-4  ml-0 sm:-ml-20 md:-ml-20 z-10"
                   variants={itemVariants}
                   initial="hidden"
                   whileInView="visible"
-                  viewport={{ once: true, amount: 0.3 }}
+                  viewport={{ once: false, amount: 0.3 }}
                 >
                   <motion.div
                     className="flex flex-col items-center space-y-2 bg-yellow p-3 rounded-lg border-8 border-[#EDEEEF] dark:border-matteblack"
@@ -140,7 +119,16 @@ export default function Edge() {
                   </motion.div>
                   <motion.p
                     variants={itemVariants}
-                    className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-gray-700 dark:text-gray-300 tracking-wider"
+                    whileHover={{
+                      scale: 1.02,
+                      color: "#3B82F6", // blue-600
+                      transition: {
+                        type: "spring",
+                        stiffness: 300,
+                        damping: 10,
+                      },
+                    }}
+                    className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-gray-700 dark:text-gray-300 tracking-wider cursor-pointer"
                   >
                     {item.description}
                   </motion.p>

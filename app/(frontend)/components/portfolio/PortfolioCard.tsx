@@ -57,7 +57,7 @@ export default function PortfolioCard() {
             variants={cardVariants(index)}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             className="relative h-[400px] group perspective-[1000px]"
           >
             <div className="relative w-full h-full transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
