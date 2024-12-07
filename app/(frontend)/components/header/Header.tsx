@@ -80,8 +80,8 @@ export default function Header() {
         {/* Video button with popup */}
         <VideoButton />
         {/* Grid layout for additional header content */}
-        <div className="grid grid-cols-1 max-[855px]:grid-cols-1 min-[855px]:grid-cols-2 gap-4 custom-header ">
-          <div className="w-full min-h-[200px] ">
+        <div className="grid grid-cols-1 max-[855px]:grid-cols-1 min-[855px]:grid-cols-2  gap-4 custom-header ">
+          <div className="w-full min-h-[200px] max-[375px]:hidden">
             <LeftContent />
           </div>
           <div className="w-full min-h-[200px] ">
