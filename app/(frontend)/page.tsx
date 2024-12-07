@@ -3,6 +3,7 @@ import Header from "./components/header/Header";
 import Portfolio from "./components/portfolio/Portfolio";
 import Edge from "./components/edge/Edge";
 import Projectinmind from "./components/projectinmind/Projectinmind";
+import Navbar from "./components/navbar/Navbar";
 
 export const metadata: Metadata = {
   title: "Shrader Technologies",
@@ -13,8 +14,9 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     // Uses dvh for dynamic viewport height
-    <div className="min-h-screen flex flex-col items-center justify-start dark:bg-matteblack">
-      <div className="w-full  ">
+    <div className="flex flex-col items-center justify-start dark:bg-matteblack">
+      <div className="w-full overflow-hidden">
+        <Navbar />
         <Header />
         <Portfolio />
         <Edge />
