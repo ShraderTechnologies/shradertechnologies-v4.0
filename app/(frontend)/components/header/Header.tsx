@@ -45,12 +45,13 @@ export default function Header() {
   };
 
   return (
-    <header className="w-full dark:bg-matteblack ">
+    <header className="w-full dark:bg-matteblack overflow-hidden relative">
       {/* Background Image Container */}
       <div
-        className="absolute inset-0 bg-[url('/images/background-white.png')] bg-cover bg-center bg-no-repeat -z-10"
+        className="absolute inset-0 bg-[url('/images/background-white.png')] bg-cover bg-center bg-no-repeat -z-10  min-h-[378px] h-full
+        sm:h-auto"
         style={{
-          backgroundImage: "url('/images/background-white.png'')",
+          backgroundImage: "url('/images/background-white.png')",
         }}
       ></div>
 
@@ -58,9 +59,9 @@ export default function Header() {
 
       <div className="container mx-auto h-full">
         {/* Top section of the header with social icons and a theme toggle */}
-        <div className="flex items-center justify-between h-full">
+        <div className="flex items-center justify-between h-full mt-4 pl-1 ">
           {/* Social media icons */}
-          <div className="flex items-center space-x-4 z-0">
+          <div className="flex items-center space-x-4  z-0">
             {socialIcons.map(({ icon: Icon, href, label }) => (
               <a
                 key={label}
@@ -81,7 +82,7 @@ export default function Header() {
         <VideoButton />
         {/* Grid layout for additional header content */}
         <div className="grid grid-cols-1 max-[855px]:grid-cols-1 min-[855px]:grid-cols-2  gap-4 custom-header ">
-          <div className="w-full min-h-[200px] max-[375px]:hidden">
+          <div className="w-full min-h-[200px] ">
             <LeftContent />
           </div>
           <div className="w-full min-h-[200px] ">
