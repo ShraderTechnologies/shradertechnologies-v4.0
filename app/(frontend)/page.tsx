@@ -4,6 +4,7 @@ import Portfolio from "./components/portfolio/Portfolio";
 import Edge from "./components/edge/Edge";
 import Projectinmind from "./components/projectinmind/Projectinmind";
 import Navbar from "./components/navbar/Navbar";
+import Footer from "./components/footer/Footer";
 
 export const metadata: Metadata = {
   title: "Shrader Technologies",
@@ -21,6 +22,7 @@ export default function Home() {
         <Portfolio />
         <Edge />
         <Projectinmind />
+        <Footer />
       </div>
     </div>
   );

@@ -49,7 +49,7 @@ export default function Header() {
       {/* Background Image Container */}
       <div
         className="absolute inset-0 bg-[url('/images/background-white.png')] bg-cover bg-center bg-no-repeat -z-10  min-h-[378px] h-full
-        sm:h-auto"
+        sm:h-auto "
         style={{
           backgroundImage: "url('/images/background-white.png')",
         }}
