@@ -23,6 +23,7 @@ import { useEffect, useState } from "react";
 import Nav from "./nav/Nav";
 import { motion, AnimatePresence } from "motion/react";
 import { usePathname } from "next/navigation";
+import ThemeToggle from "../themetoggle/ThemeToggle";
 
 export default function Navbar() {
   const [isActive, setIsActive] = useState(false);
@@ -50,6 +51,10 @@ export default function Navbar() {
   return (
     <>
       <div className={styles.headerNav}>
+        {/* Theme toggle button */}
+        <div className="flex items-center mb-3">
+          <ThemeToggle />
+        </div>
         <motion.div
           onClick={() => setIsActive(!isActive)}
           className={styles.button}
