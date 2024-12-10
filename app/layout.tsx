@@ -1,5 +1,6 @@
 import localFont from "next/font/local";
 import "./globals.css";
+import { Metadata } from "next";
 
 const poppins = localFont({
   src: [
@@ -12,6 +13,12 @@ const poppins = localFont({
   ],
   variable: "--poppins",
 });
+
+export const metadata: Metadata = {
+  title: "Shrader Technologies",
+  description:
+    "Affordable App Development with Offshore Teams, AI-Powered Solutions, and Expert Social Media Marketing Services for Scalable Business Growth.",
+};
 
 export default function RootLayout({
   children,

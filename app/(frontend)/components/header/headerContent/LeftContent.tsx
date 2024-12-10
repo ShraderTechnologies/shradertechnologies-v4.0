@@ -58,6 +58,7 @@ export default function LeftContent() {
           <Image
             src="/images/stock/handwithphone.png"
             alt="Image Shrader Technologies"
+            quality={100}
             fill
             priority
             className="object-contain"

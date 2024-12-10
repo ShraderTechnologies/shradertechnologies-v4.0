@@ -1,9 +1,8 @@
-import styles from "./Header.module.css";
-import { socialIcons } from "../../data/homepageData";
 import LeftContent from "./headerContent/LeftContent";
 import TopContent from "./headerContent/TopContent";
 import ContentRight from "./headerContent/ContentRight";
 import VideoButton from "./headerContent/VideoButton";
+import MainTop from "./headerContent/MainTop";
 
 /**
  * Header Component
@@ -34,16 +33,6 @@ import VideoButton from "./headerContent/VideoButton";
  */
 
 export default function Header() {
-  // Dynamically generates the CSS class for a given social media icon based on its label
-  const getIconClass = (label: string): string => {
-    const classes = {
-      Facebook: styles.facebook,
-      YouTube: styles.youtube,
-      Instagram: styles.instagram,
-    }[label];
-    return `${styles.socialIcon} ${classes}`;
-  };
-
   return (
     <header className="w-full dark:bg-matteblack overflow-hidden relative">
       {/* Background Image Container */}
@@ -61,20 +50,8 @@ export default function Header() {
         {/* Top section of the header with social icons and a theme toggle */}
         <div className="flex items-center justify-between h-full mt-4 pl-1 ">
           {/* Social media icons */}
-          <div className="flex items-center space-x-4  z-0">
-            {socialIcons.map(({ icon: Icon, href, label }) => (
-              <a
-                key={label}
-                href={href}
-                aria-label={label}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {/* Applies dynamic CSS classes to the social media icon */}
-                <Icon className={getIconClass(label)} />
-              </a>
-            ))}
-          </div>
+
+          <MainTop />
         </div>
         {/* Top content section */}
         <TopContent />
