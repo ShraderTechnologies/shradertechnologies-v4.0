@@ -13,7 +13,16 @@ export default function Footer() {
                 src="/images/logofooter.png"
                 width={200}
                 height={200}
-                alt="Shrader Techonologies"
+                alt="Shrader Technologies Light"
+                className="block dark:hidden transition-opacity duration-300"
+                priority
+              />
+              <Image
+                src="/images/logo.png" // Add your dark mode logo
+                width={200}
+                height={200}
+                alt="Shrader Technologies Dark"
+                className="hidden dark:block transition-opacity duration-300"
                 priority
               />
             </div>

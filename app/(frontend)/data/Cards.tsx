@@ -43,7 +43,7 @@ export const cards = [
     image: "/images/portfolio/thelearningposts.png",
   },
   {
-    title: "Drunk Cooking with Jeddy",
+    title: "DC with Jeddy",
     description: "Drunk Cooking with Jeddy",
     problem:
       "DC came to us with a need for a custom website with e-commerce and describing pain points associated with building social media presence alone and charged us with providing price-competitive solutions. ",

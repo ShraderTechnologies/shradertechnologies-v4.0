@@ -66,7 +66,7 @@ export default function Form() {
   };
 
   return (
-    <div className="bg-[#EDEEEF] dark:bg-matteblack">
+    <div className=" z-20 relative">
       <div className="container mx-auto px-4 md:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           {/* Left side - Images */}
