@@ -23,6 +23,7 @@ import { useEffect, useState } from "react";
 import Nav from "./nav/Nav";
 import { motion, AnimatePresence } from "motion/react";
 import { usePathname } from "next/navigation";
+import ThemeToggle from "../themetoggle/ThemeToggle";
 
 export default function Navbar() {
   const [isActive, setIsActive] = useState(false);
@@ -32,24 +33,14 @@ export default function Navbar() {
     if (isActive) setIsActive(false);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname]);
+
   const buttonVariants = {
-    initial: {
-      scale: 0,
-      opacity: 0,
-    },
-    animate: {
-      scale: 1,
-      opacity: 1,
-      transition: {
-        type: "spring",
-        stiffness: 260,
-        damping: 20,
-      },
-    },
     hover: {
       scale: 1.1,
       transition: {
         duration: 0.2,
+        type: "spring",
+        stiffness: 300,
       },
     },
     tap: {
@@ -59,26 +50,25 @@ export default function Navbar() {
 
   return (
     <>
-      <motion.div
-        className={styles.headerNav}
-        initial="initial"
-        animate="animate"
-      >
+      <div className={styles.headerNav}>
+        {/* Theme toggle button */}
+        <div className="flex items-center mb-3">
+          <ThemeToggle />
+        </div>
         <motion.div
-          variants={buttonVariants}
-          whileHover="hover"
-          whileTap="tap"
           onClick={() => setIsActive(!isActive)}
           className={styles.button}
+          whileHover="hover"
+          whileTap="tap"
+          variants={buttonVariants}
         >
           <div
             className={`${styles.burger} ${
               isActive ? styles.burgerActive : ""
             }`}
-          ></div>
+          />
         </motion.div>
-      </motion.div>
-
+      </div>
       <AnimatePresence mode="wait">{isActive && <Nav />}</AnimatePresence>
     </>
   );

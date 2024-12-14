@@ -1,10 +1,8 @@
-import styles from "./Header.module.css";
-import { socialIcons } from "../../data/homepageData";
-import ThemeToggle from "../themetoggle/ThemeToggle";
 import LeftContent from "./headerContent/LeftContent";
 import TopContent from "./headerContent/TopContent";
 import ContentRight from "./headerContent/ContentRight";
 import VideoButton from "./headerContent/VideoButton";
+import MainTop from "./headerContent/MainTop";
 
 /**
  * Header Component
@@ -35,63 +33,37 @@ import VideoButton from "./headerContent/VideoButton";
  */
 
 export default function Header() {
-  // Dynamically generates the CSS class for a given social media icon based on its label
-  const getIconClass = (label: string): string => {
-    const classes = {
-      Facebook: styles.facebook,
-      YouTube: styles.youtube,
-      Instagram: styles.instagram,
-    }[label];
-    return `${styles.socialIcon} ${classes}`;
-  };
-
   return (
-    <header className="w-full dark:bg-matteblack ">
+    <header className="w-full dark:bg-matteblack overflow-hidden relative">
       {/* Background Image Container */}
       <div
-        className="absolute inset-0 bg-[url('/images/background-white.png')] bg-cover bg-center bg-no-repeat -z-10"
+        className="absolute inset-0 bg-[url('/images/background-white.png')] bg-cover bg-center bg-no-repeat -z-10  min-h-[378px] h-full
+        sm:h-auto "
         style={{
-          backgroundImage: "url('/images/background-white.png'')",
+          backgroundImage: "url('/images/background-white.png')",
         }}
       ></div>
 
       {/* Header content */}
-      <div className="h-16">
-        <div className="container mx-auto h-full ">
-          {/* Top section of the header with social icons and a theme toggle */}
-          <div className="flex items-center justify-between h-full">
-            {/* Social media icons */}
-            <div className="flex items-center space-x-4 z-0">
-              {socialIcons.map(({ icon: Icon, href, label }) => (
-                <a
-                  key={label}
-                  href={href}
-                  aria-label={label}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {/* Applies dynamic CSS classes to the social media icon */}
-                  <Icon className={getIconClass(label)} />
-                </a>
-              ))}
-            </div>
-            {/* Theme toggle button */}
-            <div className="flex items-center space-x-4 ">
-              <ThemeToggle />
-            </div>
+
+      <div className="container mx-auto h-full">
+        {/* Top section of the header with social icons and a theme toggle */}
+        <div className="flex items-center justify-between h-full mt-4 pl-1 ">
+          {/* Social media icons */}
+
+          <MainTop />
+        </div>
+        {/* Top content section */}
+        <TopContent />
+        {/* Video button with popup */}
+        <VideoButton />
+        {/* Grid layout for additional header content */}
+        <div className="grid grid-cols-1 max-[855px]:grid-cols-1 min-[855px]:grid-cols-2  gap-4 custom-header ">
+          <div className="w-full min-h-[200px] ">
+            <LeftContent />
           </div>
-          {/* Top content section */}
-          <TopContent />
-          {/* Video button with popup */}
-          <VideoButton />
-          {/* Grid layout for additional header content */}
-          <div className="grid grid-cols-1 max-[855px]:grid-cols-1 min-[855px]:grid-cols-2 gap-4 custom-header ">
-            <div className="w-full min-h-[200px] ">
-              <LeftContent />
-            </div>
-            <div className="w-full min-h-[200px] ">
-              <ContentRight />
-            </div>
+          <div className="w-full min-h-[200px] ">
+            <ContentRight />
           </div>
         </div>
       </div>

@@ -70,6 +70,7 @@ export default function PortfolioCard() {
                     width={300}
                     height={200}
                     className="rounded-lg object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />
                   <h3 className="mt-4 uppercase text-center tracking-widest text-2xl font-bold text-gray-900 dark:text-gray-100">
                     {card.title}

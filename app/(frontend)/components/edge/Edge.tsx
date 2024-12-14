@@ -98,7 +98,7 @@ export default function Edge() {
                   variants={itemVariants}
                   initial="hidden"
                   whileInView="visible"
-                  viewport={{ once: false, amount: 0.3 }}
+                  viewport={{ once: false, amount: 0.5 }}
                 >
                   <motion.div
                     className="flex flex-col items-center space-y-2 bg-yellow p-3 rounded-lg border-8 border-[#EDEEEF] dark:border-matteblack"
@@ -128,9 +128,11 @@ export default function Edge() {
                         damping: 10,
                       },
                     }}
-                    className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-gray-700 dark:text-gray-300 tracking-wider cursor-pointer"
+                    className="text-xl sm:text-2xl md:text-3xl lg:text-4xl  tracking-wider cursor-pointer"
                   >
-                    {item.description}
+                    <span className="text-gray-700 dark:text-gray-300">
+                      {item.description}
+                    </span>
                   </motion.p>
                 </motion.div>
               ))}

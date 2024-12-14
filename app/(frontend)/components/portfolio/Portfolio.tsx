@@ -4,13 +4,15 @@ import PortfolioCard from "./PortfolioCard";
 import "./portfolio.css";
 export default function Portfolio() {
   return (
-    <div className="w-full min-h-screen bg-[#EDEEEF] dark:bg-matteblack relative">
-      <div className="absolute inset-0 z-0">
+    <div className="w-full bg-[#EDEEEF] dark:bg-matteblack relative overflow-hidden">
+      <div className="absolute inset-0 z-0 flex items-center justify-center">
         <div
-          className="w-full h-full bg-cover bg-center bg-no-repeat"
+          className="w-full h-full bg-no-repeat dark:invert"
           style={{
-            backgroundImage: "url('/images/bgportfolio.png')", // Replace with your image path
-            opacity: 0.1, // Adjust opacity as needed
+            backgroundImage: "url('/images/bgportfolio.png')",
+            opacity: 0.2,
+            backgroundPosition: "center",
+            backgroundSize: "auto",
           }}
         />
       </div>
