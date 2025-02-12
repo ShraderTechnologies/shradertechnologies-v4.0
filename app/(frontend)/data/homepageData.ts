@@ -93,7 +93,16 @@ export const TeamsItems = [
     title: "Victor",
     position: "Mobile Developer",
     description:
-      "Hi, I'm Victor! I’ve been an Android developer for 2 years, turning caffeine and code into apps that make life easier. From fitness guides to reporting tools and even a smoke detector app, I’ve tackled it all with a keyboard and some creativity.",
+      "Hi, I’m Victor! I’ve been an Android developer for 2 years, turning caffeine and code into apps that make life easier. From fitness guides to reporting tools and even a smoke detector app, I’ve tackled it all with a keyboard and some creativity.",
+  },
+  {
+    imgSrc: "/images/teams/kent.png",
+    urlSrc: "#",
+    alt: "Kent",
+    title: "Kent",
+    position: "Mobile Developer",
+    description:
+      "I’m Kent, a mobile developer with 4 years of experience working on various projects, including IoT, GPS-based time tracking, and emergency assistance apps. I’ve had the opportunity to lead small teams, ensuring tasks are completed and projects delivered on time. I was also involved in building a startup, which taught me a lot about project execution and the challenges of securing clients. ",
   },
   {
     imgSrc: "/images/teams/AL.jpg",
