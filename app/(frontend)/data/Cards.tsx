@@ -1,7 +1,7 @@
 export const cards = [
   {
     title: "Pasundo",
-    image: "/images/portfolio/motorcyclelogo.png",
+    image: "/images/portfolio/pasundo.png",
     alt: "Pasundo",
     description: "Mobile App | Branding | Marketing",
     problem:
@@ -50,6 +50,6 @@ export const cards = [
     solution:
       "Our solutions involved a package of web development, e-commerce app development, and social media development resources that alternate allocations of budget as the needs of DC change over time.  Our small team sizes and agile approaches to management provide the flexibility this client needs. ",
     status: "Proposals accepted, development in progress.",
-    image: "/images/portfolio/dcjeddy.png",
+    image: "/images/portfolio/dclogo.jpg",
   },
 ];
