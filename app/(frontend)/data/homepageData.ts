@@ -102,7 +102,7 @@ export const TeamsItems = [
     title: "Kent",
     position: "Mobile Developer",
     description:
-      "I’m Kent, a mobile developer with 4 years of experience working on various projects, including IoT, GPS-based time tracking, and emergency assistance apps. I’ve had the opportunity to lead small teams, ensuring tasks are completed and projects delivered on time. I was also involved in building a startup, which taught me a lot about project execution and the challenges of securing clients. ",
+      "I’m Kent, a mobile developer with 4 years of experience working on various projects, including IoT, GPS-based time tracking, and emergency assistance apps. I’ve had the opportunity to lead small teams, ensuring tasks are completed and projects delivered on time.",
   },
   {
     imgSrc: "/images/teams/AL.jpg",
