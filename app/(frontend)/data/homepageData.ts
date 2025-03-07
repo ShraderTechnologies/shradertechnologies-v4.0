@@ -18,7 +18,7 @@ export const socialIcons: SocialIcon[] = [
   },
   {
     icon: IoLogoYoutube,
-    href: "https://youtube.com",
+    href: "https://www.youtube.com/@ShraderTechnologies",
     label: "YouTube",
     hoverColor: "#FF0000",
   },
